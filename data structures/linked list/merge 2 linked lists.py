@@ -27,27 +27,26 @@ class linked_list:
 
 
 def merge_linked_lists(list1,list2):
-    dummy = header = node(1)
-    cur_node1 = list1.head
-    cur_node2 = list2.head
-    if not(cur_node1 and cur_node2):
-        print("ERROR: can't merge with empty list!")
-    while (cur_node1 and cur_node2):
-        if cur_node1.data > cur_node2.data:
-            dummy.next = node(cur_node2.data)
-            cur_node2 = cur_node2.next
+    dummy = tail = node(0)
+    list1_node = list1.head
+    list2_node = list2.head
+
+    while True:
+        if not list1_node:
+            tail.next = list2_node
+            break
+        if not list2_node:
+            tail.next = list1_node
+            break
+        if list1_node.data > list2_node.data:
+            tail.next = list2_node
+            list2_node = list2_node.next
         else:
-            dummy.next = node(cur_node1.data)
-            cur_node1 = cur_node1.next
-        dummy = dummy.next
-    if cur_node1 == None:
-        dummy.next = cur_node2
-    else:
-        dummy.next = cur_node1
-    temp = header.next
-    while temp:
-        print(f"->{temp.data}",end="")
-        temp = temp.next
+            tail.next = list1_node
+            list1_node = list1_node.next
+        tail = tail.next
+    return dummy.next
+
 
 
 
@@ -65,4 +64,5 @@ print("List1 - ",end="")
 list1.print_list()
 print("List2 - ",end="")
 list2.print_list()
-merge_linked_lists(list1,list2)
+list1.head = merge_linked_lists(list1,list2)
+list1.print_list()
