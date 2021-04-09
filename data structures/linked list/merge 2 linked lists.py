@@ -47,6 +47,20 @@ def merge_linked_lists(list1,list2):
         tail = tail.next
     return dummy.next
 
+def recursive_merge_list(head1,head2):
+    if head1 == None:
+        return head2
+    if head2 == None:
+        return head1
+    if head1.data < head2.data:
+        temp = head1
+        temp.next = recursive_merge_list(head1.next, head2)
+    else:
+        temp = head2
+        temp.next = recursive_merge_list(head1,head2.next)
+    return temp
+
+
 
 
 
@@ -64,5 +78,5 @@ print("List1 - ",end="")
 list1.print_list()
 print("List2 - ",end="")
 list2.print_list()
-list1.head = merge_linked_lists(list1,list2)
+list1.head = recursive_merge_list(list1.head,list2.head)
 list1.print_list()
