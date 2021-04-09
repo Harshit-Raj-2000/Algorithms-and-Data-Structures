@@ -32,6 +32,7 @@ class linked_list:
             fast = fast.next.next
         return slow
 
+# space complexity - O(nlog(n)),, time complexity - O(n(log(n)))
     def merge_sort(self,node):
         if node == None or node.next == None:
             return node
