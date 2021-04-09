@@ -47,6 +47,7 @@ def merge_linked_lists(list1,list2):
         tail = tail.next
     return dummy.next
 
+# Time Complexity of this is O(m+n), as we are fully traversing the two lists
 def recursive_merge_list(head1,head2):
     if head1 == None:
         return head2
