@@ -47,6 +47,8 @@ class linked_list:
         node.next = None
         return res
 
+# Time Complexity: O(n). - Traversal of list is done only once and it has ‘n’ elements.
+# Auxiliary Space: O(n/k). - For each Linked List of size n, n/k or (n/k)+1 calls will be made during the recursion.
     def reverse_in_group(self,head,count):
         if head == None:
             return None
