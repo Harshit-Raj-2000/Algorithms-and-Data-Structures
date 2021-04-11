@@ -2,6 +2,11 @@
 # num2 - 8->4->2-> null represents 248
 # output - 3->1->6-> output -> 613
 
+# this is classified easy on gfg
+# but if 5->6->3-> null represented 563, and then we had to solve this
+# problem, to get 1->4->0->5->None, it is classified hard
+# figure out how to do this 
+
 class node:
     def __init__(self,data):
         self.data = data
