@@ -70,6 +70,3 @@ exp = "a+b*(c^d-e)^(f+g*h)-i"
 obj = conversion(len(exp))
 obj.infix_to_postfix(exp)
 
-
-    
-        
